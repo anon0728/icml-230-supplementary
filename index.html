@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AsymRnR - Supplementary Tables and Figures</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Supplementary Tables and Figures for ICML Rebuttal</h1>
+            <h3>Submission number: 230</h3>
+            <h3>AsymRnR: Video Diffusion Transformers Acceleration with Asymmetric Reduction and Restoration</h3>
+        </header>
+
+        <section id="figures">
+            <h2>Figures</h2>
+
+            <div class="figure-container">
+                <p>Fig. 1. Cases when AsymRnR produces higher-quality results. This suggests the subjective metric like VBench is a more appropriate assessment than visual correspondence metrics like PSNR and SSIM.</p>
+                
+                <div class="video-row">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/goodcases/hyvideo-0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">HunyuanVideo, 913s</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/goodcases/arnr-0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">HunyuanVideo + AsymRnR, 703s (1.3x speedup)</p>
+                    </div>
+                </div>
+                <p class="row-caption">(a) Prompt: An apple.</p>
+
+                <div class="video-row">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/goodcases/hyvideo-1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">HunyuanVideo, 913s</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/goodcases/arnr-1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">HunyuanVideo + AsymRnR, 703s (1.3x speedup)</p>
+                    </div>
+                </div>
+                <p class="row-caption">(b) Prompt: A cat on the right of a dog.</p>
+            </div>
+
+            <div class="figure-container">
+                <p>Fig. 2. Effects of varying the similarity threshold (Top) and the reduction rate (Bottom) in AsymRnR. Aggressive reduction improves runtime but degrades output quality, leading to blurriness and visual artifacts. Zoom-in for a better view of details. Prompt: A dog running happily.</p>
+                
+                <div class="video-row">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/ablation/baseline.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">HunyuanVideo baseline (903s).</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/ablation/reduction-0_5.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Similarity threshold 0.6, reduction rate 0.5 (708s).</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/ablation/reduction-0_7.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Similarity threshold 0.6, reduction rate 0.7 (699s).</p>
+                    </div>
+                </div>
+                <p class="row-caption">(a) Effects of increasing the reduction rate in AsymRnR.</p>
+
+                <div class="video-row">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/ablation/arnr.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Similarity threshold 0.6, reduction rate 0.3. (712s)</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/ablation/threshold-0_5.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Similarity threshold 0.5, reduction rate 0.3. (696s)</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/ablation/threshold-0_4.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Similarity threshold 0.4, reduction rate 0.3. (684s)</p>
+                    </div>
+                </div>
+                <p class="row-caption">(b) Effects of lowering the similarity threshold.</p>
+            </div>
+
+            <div class="figure-container">
+                <p>Fig. 3. Examples where the baseline model produces low-quality results, and AsymRnR further amplifies the artifacts.</p>
+                
+                <div class="video-row">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/badcases/hyvideo-0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">HunyuanVideo, 913s</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/badcases/arnr-0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">HunyuanVideo + AsymRnR, 703s (1.3x speedup)</p>
+                    </div>
+                </div>
+                <p class="row-caption">(a) Distorted character details. Prompt: A parking meter.</p>
+                
+                <div class="video-row">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/badcases/hyvideo-1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">HunyuanVideo, 913s</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/badcases/arnr-1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">HunyuanVideo + AsymRnR, 703s (1.3x speedup)</p>
+                    </div>
+                </div>
+                <p class="row-caption">(b) Exaggerated motion blur and unnatural physical actions. Prompt: A person is catching or throwing baseball.</p>
+            </div>
+            
+            <div class="figure-container">
+                <p>Fig. 4. Quantitative evaluation on HunyuanVideo. AsymRnR is compatible with the feature caching method PAB (<i>Real-Time Video Generation with Pyramid Attention Broadcast.</i>), and together they achieve a 1.71× overall acceleration.</p>
+                
+                <div class="video-row">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/pab/baseline-0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">HunyuanVideo, 913s</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/pab/pab-0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">HunyuanVideo + PAB, 716s (1.28x speedup)</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/pab/pab-arnr-0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">HunyuanVideo + PAB + AsymRnR, 535s (1.71x speedup)</p>
+                    </div>
+                </div>
+                <p class="row-caption">Prompt: A fluffy white sheep.</p>
+            </div>
+
+            <div class="figure-container">
+                <p>Fig. 5. Quantitative comparison of AnimateDiff (<i>Animate Your Personalized Text-to-Image Diffusion Models without Specific Tuning.</i>), a video diffusion model based on a factorized 3D U-Net architecture. Video and model specifications are provided in Tab. 3.</p>
+                
+                <div class="video-row">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/animatediff/baseline-0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">AnimeteDiff  (37.21s)</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/animatediff/tome-0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">ToMe (31.14s)</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/animatediff/arnr-0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">AsymRnR (31.09s)</p>
+                    </div>
+                </div>
+                <p class="row-caption">(a) Prompt: A boat sailing leisurely along the Seine River with the Eiffel Tower in background.</p>
+
+                <div class="video-row">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/animatediff/baseline-1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">AnimeteDiff  (37.21s)</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/animatediff/tome-1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">ToMe (31.14s)</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/animatediff/arnr-1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">AsymRnR (31.09s)</p>
+                    </div>
+                </div>
+                <p class="row-caption">(b) Prompt: A squirrel eating a burger.</p>
+            </div>
+
+            <div class="figure-container">
+                <p>Fig. 6. Additional results corresponding to <i>Fig. 2 in the main manuscript</i>.</p>
+                
+                <div class="video-row">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/teaser/cat_q_t0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Early Timesteps</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/teaser/cat_q_t1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Middle Timesteps</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/teaser/cat_q_t2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Late Timesteps</p>
+                    </div>
+                </div>
+
+                <div class="video-row">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/teaser/cat_q_b0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Shallow Blocks</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/teaser/cat_q_b1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Medium Blocks</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/teaser/cat_q_b2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Deep Blocks</p>
+                    </div>
+                </div>
+                <p class="row-caption">(a) The effects of perturbing different components of <b>Q</b> in CogVideoX.</p>
+
+                <div class="video-row">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/teaser/cat_k_t0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Early Timesteps</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/teaser/cat_k_t1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Middle Timesteps</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/teaser/cat_k_t2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Late Timesteps</p>
+                    </div>
+                </div>
+
+                <div class="video-row">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/teaser/cat_k_b0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Shallow Blocks</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/teaser/cat_k_b1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Medium Blocks</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/teaser/cat_k_b2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="subcaption">Deep Blocks</p>
+                    </div>
+                </div>
+                <p class="row-caption">(b) The effects of perturbing different components of <b>K & V</b> in CogVideoX.</p>
+            </div>
+        </section>
+
+        <section id="tables">
+            <h2>Tables</h2>
+            
+            <div class="table-container">
+                <p class="table-caption">Tab. 1. Integration of AsymRnR with the caching-based method PAB on HunyuanVideo further improves efficiency, achieving a total 1.71× speedup with negligible performance degradation.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>FLOPs (\(×10^{15}\))</th>
+                            <th>Latency (s)</th>
+                            <th>Speedup</th>
+                            <th>VBench \(\uparrow\)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HunyuanVideo</td>
+                            <td>128.599</td>
+                            <td>912.89</td>
+                            <td>-</td>
+                            <td>0.8157</td>
+                        </tr>
+                        <tr>
+                            <td>+ PAB</td>
+                            <td>96.582</td>
+                            <td>715.71</td>
+                            <td>x 1.28</td>
+                            <td>0.8153</td>
+                        </tr>
+                        <tr>
+                            <td>+ PAB & AsymRnR</td>
+                            <td>73.224</td>
+                            <td>534.93</td>
+                            <td>x 1.71</td>
+                            <td>0.8140</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <p class="table-caption">Tab. 2. Quantitative comparison of AnimateDiff  with ToMe and AsymRnR. Generation specifications: 16-frame videos at a resolution of \(512 \times 512\) using a 50-step DDIM Euler solver.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>FLOPs (\(×10^{6}\))</th>
+                            <th>Latency (s)</th>
+                            <th>Speedup</th>
+                            <th>VBench \(\uparrow\)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AnimeteDiff </td>
+                            <td>1.775</td>
+                            <td>37.21</td>
+                            <td>-</td>
+                            <td>0.7748</td>
+                        </tr>
+                        <tr>
+                            <td>+ ToMe</td>
+                            <td>1.636</td>
+                            <td>31.14</td>
+                            <td>1.19x</td>
+                            <td>0.7693</td>
+                        </tr>
+                        <tr>
+                            <td>+ AsymRnR</td>
+                            <td>1.635</td>
+                            <td>31.09</td>
+                            <td>1.20x</td>
+                            <td>0.7738</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <p class="table-caption">Tab. 3. Comparison between AnimateDiff  and CogVideoX 2B. Earlier video diffusion models based on factorized 3D UNet architectures generate lower-quality videos compared to recent full 3D DiT models with similar parameter scales.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Architecture</th>
+                            <th># params</th>
+                            <th>Resolution (#frames, height, width)</th>
+                            <th>VBench \(\uparrow\)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AnimateDiff  (Jul 2023)</td>
+                            <td>Factorized 3D UNet</td>
+                            <td>1.31B</td>
+                            <td>(16, 512, 512)</td>
+                            <td>0.7748</td>
+                        </tr>
+                        <tr>
+                            <td>CogVideoX 2B (Aug 2024)</td>
+                            <td>Full 3D DiT</td>
+                            <td>1.69B</td>
+                            <td>(49, 480, 720)</td>
+                            <td>0.8008</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- <section id="references">
+            <h2>References</h2>
+            <ol class="reference-list">
+                <li>
+                    <span class="reference-authors">Xuanlei Zhao, Xiaolong Jin, Kai Wang, Yang You</span>
+                    <span class="reference-title">Real-Time Video Generation with Pyramid Attention Broadcast.</span>
+                    <span class="reference-publication">ICLR, 2025.</span>
+                </li>
+                <li>
+                    <span class="reference-authors">Yuwei Guo, Ceyuan Yang, Anyi Rao, Zhengyang Liang, Yaohui Wang, Yu Qiao, Maneesh Agrawala, Dahua Lin, Bo Dai.</span>
+                    <span class="reference-title">AnimateDiff: Animate Your Personalized Text-to-Image Diffusion Models without Specific Tuning.</span>
+                    <span class="reference-publication">ICLR, 2024.</span>
+                </li>
+                <li>
+                    <span class="reference-authors">Daniel Bolya, Judy Hoffman.</span>
+                    <span class="reference-title">Token Merging for Fast Stable Diffusion.</span>
+                    <span class="reference-publication">CVPRw, 2024.</span>
+                </li>
+            </ol>
+        </section> -->
+
+        <footer>
+            <p>ICML Rebuttal. <b>AsymRnR</b>: Video Diffusion Transformers Acceleration with Asymmetric Reduction and Restoration. <b>Submission number: 230</b></p>
+        </footer>
+    </div>
+</body>
+</html>
